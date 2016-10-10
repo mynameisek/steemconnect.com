@@ -50,6 +50,7 @@ router.get('/api/accountCreate', (req, res) => {
 
 router.get('/api/customJson', (req, res) => {
   const { id, json, requiredPostingAuths, requiredAuths } = req.query;
+  console.log(req.wif, requiredAuths, requiredPostingAuths, id, json);
   steem.broadcast.customJson(req.wif, requiredAuths, requiredPostingAuths, id, json,
     (err, result) => sendResponse({ err, result }, res));
 });
